@@ -1,0 +1,14 @@
+<h1><%= @restaurant.name %></h1>
+<%= link_to "back", root_path %>
+
+<h2><%= pluralize @restaurant.reviews.size, "review" %></h2>
+
+<div>
+  <% if @restaurant.reviews.blank? %>
+    Be the first to leave a review for <%= @restaurant.name %>
+  <% else %>
+    <% @restaurant.reviews.each do |review| %>
+      <p><%= review.content %></p>
+    <% end %>
+  <% end %>
+</div>
